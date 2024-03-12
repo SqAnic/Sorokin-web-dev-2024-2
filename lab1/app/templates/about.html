@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block head %}
+    {{ super() }}
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+{% endblock %}
+
+{% block content %}
+    <h1 class="text-center"> Об авторе </h1>
+    <div class="row">
+        <div class="col-md-4">
+            <img class="img-fluid" src="{{ url_for('static', filename='images/avatar.jpg') }}" alt="">
+        </div>
+        <div class="col-md-8">
+            Lorem ipsum dolor sit amet consectetur 
+            adipisicing elit. Reprehenderit eveniet 
+            repellendus autem perferendis esse fugiat 
+            aperiam hic, saepe obcaecati pariatur unde 
+            temporibus voluptas placeat doloribus rem. 
+            Nemo reprehenderit perspiciatis exercitationem? 
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Explicabo, assumenda. Temporibus, eaque laboriosam neque 
+            repellendus saepe veritatis, incidunt, et tempora nemo 
+            doloremque vero? Illo, perferendis tempora porro non 
+            doloremque labore.     
+        </div>
+    </div>
+{% endblock %}
