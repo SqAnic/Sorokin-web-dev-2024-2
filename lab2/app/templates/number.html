@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <form method="POST">
+        <div class="mb-3">
+            <label for="validationCustom01" class="form-label">Номер Телефона</label>
+            <input type="text" id="validationCustom01" name="ph_number" value="{{ request.form.get('ph_number', '') }}" class="form-control {{input_class}}" required>
+            {% if input_class == 'is-valid' %}
+                <div class="valid-feedback">
+                    Looks good!
+                </div>
+            {% elif input_class == 'is-invalid' %}
+                <div class="invalid-feedback">
+                    {{error}}
+                </div>
+            {% endif %}
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+    
+    {% if text!='' %}
+        {{ text }}
+    {% endif %}
+{% endblock %}
