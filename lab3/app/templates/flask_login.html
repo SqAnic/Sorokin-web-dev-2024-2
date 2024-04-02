@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <h1>Форма Логина</h1>
+    <form method="POST">
+        <div class="container mb-3">
+            <label for="login-field" class="form-label" >Логин</label>
+            <input type="text" name="login" id="login-field" class="form-control">
+        </div>
+        <div class="container mb-3">
+            <label for="password-field" class="form-label">Пароль</label>
+            <input type="password" name="password" id="password-field" class="form-control">
+        </div>
+        <div class="mb-3">
+            <input type="checkbox" name="remember_me" id="checkbox">
+            <label for="checkbox">Запомнить меня</label>
+        </div>
+        <button type="submit" class="btn btn-primary">Отправить</button>
+    </form>
+{% endblock %}
