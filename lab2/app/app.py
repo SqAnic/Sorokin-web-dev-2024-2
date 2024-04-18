@@ -7,7 +7,7 @@ def num_checker(num):
     counter = 0
     symbols = [' ', '(', ')', '-', '+', '.']
     numbers = ['1', '2', '3', '4' , '5' , '6', '7', '8', '9', '0']
-    new_num = ''
+
     for char in num:
         if char not in symbols and char not in numbers:
             error = 'Недопустимый ввод. В номере телефона встречаются недопустимые символы.'
@@ -16,7 +16,7 @@ def num_checker(num):
             counter += 1
     if (num[0] == '8' and counter == 11) or (num[:2] == '+7' and counter == 11):
         return 1
-    elif (num[0] != '8' and num[:2] != '+7') and counter == 10:
+    elif ((num[0] != '8' and num[:2] != '+7') or num[0] == '8') and counter == 10:
         return 2
     else:
         error = 'Недопустимый ввод. Неверное количество цифр.'
