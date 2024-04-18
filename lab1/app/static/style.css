@@ -1,3 +1,9 @@
 body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 100% высоты видимой области окна браузера */
     font-size: 1.25rem;
+}
+main {
+    flex: 1; /* Оставить место для футера */
 }
