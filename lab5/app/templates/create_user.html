@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class='mb-3'>Создание пользователя</h1>
+{% from 'form.html' import form %}
+
+{{ form(user, roles, current_user) }}
+
+{% endblock%}

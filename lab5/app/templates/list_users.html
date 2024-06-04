@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Логин</th>
+            <th>ФИО</th>
+            <th>Роль</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <td class="user-login"> {{user.login}}</td>
+            <td> {{user.first_name}} {{user.second_name}} {%if user.middle_name%}{{user.middle_name}}{%endif%}</td>
+            <td> {{user.role}}</td>
+            <td>
+                <div class="actions">
+                  {% if current_user.can('show',user)%}
+                    <a class="btn btn-primary" href="{{url_for('show_user', user_id = user.id)}}">Посмотреть</a>
+                  {% endif%}
+                  {% if current_user.can('edit',user)%}
+                    <a class="btn btn-warning" href="{{url_for('edit_user', user_id = user.id)}}">Редактировать</a>
+                  {% endif%}
+                    {% if current_user.can('delete',user)%}
+                    <button type="button" class="btn btn-primary" data-action={{url_for('delete_user', user_id = user.id)}} data-bs-toggle="modal" data-bs-target="#deleteUser">Удалить</button>
+                    {% endif%}
+                </div>
+            </td>
+        </tr>
+        {% endfor %}
+        {% if current_user.can ('create',user)%}
+        <a class="btn btn-primary" href="{{url_for('create_user')}}">Создать пользователя</a>
+        {% endif %}
+    </tbody>
+</table>
+<div class="modal fade" id="deleteUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Удаление записи</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Вы действительно хотите удалить пользователя <span class="name-user"><span>?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Нет</button>
+          <form class="modal-form" method="post">
+            <button type="submit" class="btn btn-primary">Да</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

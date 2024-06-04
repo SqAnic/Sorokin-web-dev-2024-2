@@ -1,0 +1,21 @@
+{%extends "/log/base.html"%}
+
+{%block visits%}
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Номер</th>
+            <th>Страница</th>
+            <th>Количество посещенийнных страниц</th>
+        </tr>
+    </thead>
+<tbody>
+    {%for log in logs%}
+        <tr>
+            <td>{{ loop.index }}</td>
+            <td>{{ log.path }}</td>
+            <td>{{ log.count }}</td>
+        </tr>
+    {%endfor%}
+</tbody>
+{%endblock%}
