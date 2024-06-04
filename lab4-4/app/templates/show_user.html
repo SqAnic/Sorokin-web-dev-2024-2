@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1 class='mb-3'>Просмотр пользователя</h1>
+<table class="table">
+    <div class="mb-3">
+        <tr>
+            <th scope="row"><label for="InputName" class="label">Имя</label></td>
+            <td><p>{{ user.first_name }}</p></td>
+        </tr>   
+    </div>
+    <div class="mb-3">
+        <tr>
+            <th scope="row"><label for="InputLastName" class="label">Фамилия</label></td>
+            <td><p>{{ user.second_name}}</p></td>
+        </tr>
+    </div>
+    <div class="mb-3">
+        <tr>
+            <th scope="col"><label for="InputMiddleName" class="label">Отчество</label></th>
+            <td><p>{{ user.middle_name }}</p></td>
+        </tr>
+    </div>
+    <div class="mb-3">
+        <tr>
+            <th scope="row"><label for="InputLogin" class="label">Логин</label></th>
+            <td><p>{{ user.login }}</p></td>
+        </tr>
+    </div>
+    <div class="mb-3">
+        <tr>
+            <th scope="row"><label for="InputRole" class="label">Роль</label></th>
+            <td><p>{{ user.role_name }}</p></td>
+        </tr>
+    </div>
+</table>
+<a class="btn btn-primary" href="{{url_for('list_users')}}">Назад</a>
+{% endblock %}
